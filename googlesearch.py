@@ -54,7 +54,7 @@ def convert_unicode(text):
 
 def search(query, num_results=15):
 	"""
-	searches google for :query and returns a list of tuples 
+	searches google for :query and returns a list of tuples
 	of the format (name, url)
 	"""
 	data = download(query, num_results)
