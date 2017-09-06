@@ -15,6 +15,10 @@ except ImportError:
 	import urllib2 as request
 	from HTMLParser import HTMLParser
 
+# placeholder
+unicodedata = None
+isPython2 = sys.version.startswith('2')
+
 
 def download(query, num_results=15):
 	"""
@@ -49,12 +53,21 @@ def convert_unicode(text):
 	"""
 	converts unicode HTML to real Unicode
 	"""
-	if sys.version.startswith('2'):
+	if isPython2:
 		h = HTMLParser()
 		s = h.unescape(text)
 	else:
 		s = unescape(text)
 	return s
+
+
+def decode(s):
+	# import unicodedata
+	# return unicodedata.normalize('NFD', unicode(s))
+	if isPython2:
+		return s.decode('utf-8', 'ignore')
+	else:
+		return s
 
 
 def search(query, num_results=15):
@@ -83,6 +96,7 @@ def search(query, num_results=15):
 		# parse name
 		name = prune_html(mtch.group(2))
 		name = convert_unicode(name)
+		name = decode(name)
 		# append to links
 		if is_url(url): # can be google images result
 			links.append((name, url))
@@ -90,4 +104,4 @@ def search(query, num_results=15):
 
 
 if __name__ == '__main__':
-	print(search('Avi Aryan'))
+	print(search('Kimi no na wa'))
