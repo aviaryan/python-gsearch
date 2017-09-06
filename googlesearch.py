@@ -4,19 +4,22 @@ from __future__ import print_function
 
 import re
 import sys
+from random import choice
+from data import user_agents
 
 try:
 	# Python 3
 	from urllib import request
 	from html.parser import HTMLParser # keep it to avoid warning
 	from html import unescape
+	from urllib.parse import quote
 except ImportError:
 	# Python 2
 	import urllib2 as request
+	from urllib import quote
 	from HTMLParser import HTMLParser
 
 # placeholder
-unicodedata = None
 isPython2 = sys.version.startswith('2')
 
 
@@ -24,12 +27,19 @@ def download(query, num_results=15):
 	"""
 	downloads HTML after google search
 	"""
-	name = query
+	# https://stackoverflow.com/questions/11818362/how-to-deal-with-unicode-string-in-url-in-python3
+	name = quote(query)
+
 	name  = name.replace(' ','+')
 	url = 'http://www.google.com/search?q=' + name + '&num=' + str(num_results)
-	req = request.Request(url, headers={'User-Agent' : "foobar"})
+	req = request.Request(url, headers={'User-Agent' : choice(user_agents)})
 	response = request.urlopen(req)
-	data = response.read()
+	# response.read is bytes in Py 3
+	if isPython2:
+		# trick: decode unicode as early as possible
+		data = response.read().decode('utf8', errors='ignore')
+	else:
+		data = str(response.read(), 'utf-8', errors='ignore')
 	return data
 
 
@@ -61,13 +71,13 @@ def convert_unicode(text):
 	return s
 
 
-def decode(s):
-	# import unicodedata
-	# return unicodedata.normalize('NFD', unicode(s))
-	if isPython2:
-		return s.decode('utf-8', 'ignore')
-	else:
-		return s
+# def decode(s):
+# 	# import unicodedata
+# 	# return unicodedata.normalize('NFD', unicode(s))
+# 	if isPython2:
+# 		return unicode(s)
+# 	else:
+# 		return s
 
 
 def search(query, num_results=15):
@@ -76,8 +86,6 @@ def search(query, num_results=15):
 	of the format (name, url)
 	"""
 	data = download(query, num_results)
-	if type(data) != str: # in Python 3
-		data = str(data, 'utf-8', errors='ignore')
 	results = re.findall(r'\<h3.*?\>.*?\<\/h3\>', data, re.IGNORECASE)
 	if results is None:
 		return []
@@ -96,7 +104,7 @@ def search(query, num_results=15):
 		# parse name
 		name = prune_html(mtch.group(2))
 		name = convert_unicode(name)
-		name = decode(name)
+		# name = decode(name)
 		# append to links
 		if is_url(url): # can be google images result
 			links.append((name, url))
@@ -104,4 +112,5 @@ def search(query, num_results=15):
 
 
 if __name__ == '__main__':
-	print(search('Kimi no na wa'))
+	# print(search('Kimi no na wa'))
+	print(search('君の名'))
