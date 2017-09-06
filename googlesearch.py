@@ -15,6 +15,9 @@ except ImportError:
 
 
 def download(query, num_results=15):
+	"""
+	downloads HTML after google search
+	"""
 	name = query
 	name  = name.replace(' ','+')
 	url = 'http://www.google.com/search?q=' + name + '&num=' + str(num_results)
@@ -25,6 +28,9 @@ def download(query, num_results=15):
 
 
 def is_url(url):
+	"""
+	checks if :url is a url
+	"""
 	regex = r'((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)'
 	return re.match(regex, url) is not None
 
@@ -38,14 +44,21 @@ def prune_html(text):
 
 
 def convert_unicode(text):
+	"""
+	converts unicode HTML to real Unicode
+	"""
 	h = HTMLParser()
 	s = h.unescape(text)
 	return s
 
 
-def search(query):
-	data = download(query)
-	if type(data) != str:
+def search(query, num_results=15):
+	"""
+	searches google for :query and returns a list of tuples 
+	of the format (name, url)
+	"""
+	data = download(query, num_results)
+	if type(data) != str: # in Python 3
 		data = str(data, 'utf-8', errors='ignore')
 	results = re.findall(r'\<h3.*?\>.*?\<\/h3\>', data, re.IGNORECASE)
 	if results is None:
