@@ -71,15 +71,6 @@ def convert_unicode(text):
 	return s
 
 
-# def decode(s):
-# 	# import unicodedata
-# 	# return unicodedata.normalize('NFD', unicode(s))
-# 	if isPython2:
-# 		return unicode(s)
-# 	else:
-# 		return s
-
-
 def search(query, num_results=15):
 	"""
 	searches google for :query and returns a list of tuples
@@ -104,7 +95,6 @@ def search(query, num_results=15):
 		# parse name
 		name = prune_html(mtch.group(2))
 		name = convert_unicode(name)
-		# name = decode(name)
 		# append to links
 		if is_url(url): # can be google images result
 			links.append((name, url))
