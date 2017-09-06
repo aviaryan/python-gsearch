@@ -3,11 +3,13 @@
 from __future__ import print_function
 
 import re
+import sys
 
 try:
 	# Python 3
 	from urllib import request
-	from html.parser import HTMLParser
+	from html.parser import HTMLParser # keep it to avoid warning
+	from html import unescape
 except ImportError:
 	# Python 2
 	import urllib2 as request
@@ -47,8 +49,11 @@ def convert_unicode(text):
 	"""
 	converts unicode HTML to real Unicode
 	"""
-	h = HTMLParser()
-	s = h.unescape(text)
+	if sys.version.startswith('2'):
+		h = HTMLParser()
+		s = h.unescape(text)
+	else:
+		s = unescape(text)
 	return s
 
 
