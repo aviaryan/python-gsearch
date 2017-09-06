@@ -1,6 +1,6 @@
 # Python Google Search API
 
-Unofficial Google Search API for Python. It uses web scraping in the background.
+Unofficial Google Search API for Python. It uses web scraping in the background and is compatible with both **Python 2 and 3**.
 
 
 ### Why this project?
