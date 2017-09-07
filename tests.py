@@ -13,7 +13,7 @@ class TestSearch(unittest.TestCase):
 		time.sleep(randint(15,20))
 
 	def test_results_count(self):
-		res = search('Avi Aryan', num_results=25)
+		res = search('Avi Aryan', num_results=30)
 		self.assertTrue(len(res) > 10, 'Less than 11 results returned')
 
 	def test_results_zero(self):

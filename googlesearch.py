@@ -23,7 +23,7 @@ except ImportError:
 isPython2 = sys.version.startswith('2')
 
 
-def download(query, num_results=15):
+def download(query, num_results=20):
 	"""
 	downloads HTML after google search
 	"""
