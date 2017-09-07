@@ -126,10 +126,18 @@ def run():
 	CLI endpoint to run the program
 	"""
 	if len(sys.argv) > 1:
-		print(search(sys.argv[1]))
+		results = search(sys.argv[1])
 	else:
 		# print(search('Kimi no na wa'))
-		print(search('君の名'))
+		results = search('君の名')
+	# output
+	if type(results) == list:
+		ct = 1
+		for r in results:
+			print(str(ct) + '.', r[0] + '\n  ' + r[1])
+			ct += 1
+	else:
+		print(results)
 
 
 if __name__ == '__main__':
