@@ -2,10 +2,10 @@
 
 user_agents = [
 	'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-	'Googlebot/2.1 (+http://www.google.com/bot.html)',
+	# 'Googlebot/2.1 (+http://www.google.com/bot.html)',
 	'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)'
 	' Ubuntu Chromium/49.0.2623.108 Chrome/49.0.2623.108 Safari/537.36',
-	'Gigabot/3.0 (http://www.gigablast.com/spider.html)',
+	# 'Gigabot/3.0 (http://www.gigablast.com/spider.html)',
 	'Mozilla/5.0 (Windows; U; Windows NT 5.1; pt-BR) AppleWebKit/533.3 '
 	'(KHTML, like Gecko)  QtWeb Internet Browser/3.7 http://www.QtWeb.net',
 	'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -19,5 +19,5 @@ user_agents = [
 	'Mozilla/5.0 (Windows; U; Windows NT 6.1; rv:2.2) Gecko/20110201',
 	'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) '
 	'Gecko/20080414 Firefox/2.0.0.13 Pogo/2.0.0.13.6866',
-	'WorldWideweb (NEXT)'
+	# 'WorldWideweb (NEXT)'
 ]
