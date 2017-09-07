@@ -23,7 +23,7 @@ except ImportError:
 isPython2 = sys.version.startswith('2')
 
 
-def download(query, num_results=10):
+def download(query, num_results):
 	"""
 	downloads HTML after google search
 	"""
@@ -81,7 +81,7 @@ def convert_unicode(text):
 	return s
 
 
-def search(query, num_results=15):
+def search(query, num_results=10):
 	"""
 	searches google for :query and returns a list of tuples
 	of the format (name, url)
@@ -102,7 +102,7 @@ def search(query, num_results=15):
 		# clean url https://github.com/aviaryan/pythons/blob/master/Others/GoogleSearchLinks.py
 		url = re.sub(r'^.*?=', '', url, count=1) # prefixed over urls \url=q?
 		url = re.sub(r'\&amp.*$', '', url, count=1) # suffixed google things
-		# url = re.sub(r'\%.*$', '', url) # NOT SAFE
+		# url = re.sub(r'\%.*$', '', url) # NOT SAFE, causes issues with Youtube watch url
 		# parse name
 		name = prune_html(mtch.group(2))
 		name = convert_unicode(name)
