@@ -38,7 +38,11 @@ def download(query, num_results=10):
 		'User-Agent' : choice(user_agents),
 		# 'Referer': 'google.com'
 	})
-	response = request.urlopen(req)
+	try:
+		response = request.urlopen(req)
+	except:  # catch connection issues
+		# may also catch 503 rate limit exceed
+		return ''
 	# response.read is bytes in Py 3
 	if isPython2:
 		# trick: decode unicode as early as possible
@@ -84,7 +88,8 @@ def search(query, num_results=15):
 	"""
 	data = download(query, num_results)
 	results = re.findall(r'\<h3.*?\>.*?\<\/h3\>', data, re.IGNORECASE)
-	if results is None:
+	if results is None or len(results) == 0:
+		print('No results where found? Did the rate limit exceed?')
 		return []
 	# search has results
 	links = []
