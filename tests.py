@@ -10,10 +10,10 @@ from googlesearch import search
 class TestSearch(unittest.TestCase):
 
 	def setUp(self):
-		time.sleep(randint(13,18))
+		time.sleep(randint(15,20))
 
 	def test_results_count(self):
-		res = search('Avi Aryan', num_results=20)
+		res = search('Avi Aryan', num_results=25)
 		self.assertTrue(len(res) > 10, 'Less than 11 results returned')
 
 	def test_results_zero(self):
