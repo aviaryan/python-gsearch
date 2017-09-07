@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import unittest
+import time
+from random import randint
 
 from googlesearch import search
 
 
 class TestSearch(unittest.TestCase):
+
+	def setUp(self):
+		time.sleep(randint(13,18))
 
 	def test_results_count(self):
 		res = search('Avi Aryan', num_results=20)
