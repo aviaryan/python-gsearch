@@ -60,4 +60,6 @@ If you see a 'rate limit' or a 503 error, it's best to stop using the library an
 
 ### Inspiration
 
-[google by Mario Vilas](https://breakingcode.wordpress.com/2010/06/29/google-search-python/)
+[google by Mario Vilas](https://breakingcode.wordpress.com/2010/06/29/google-search-python/) -
+A library which does almost the same thing except that it uses external dependencies.
+This library also has some additional optimizations to reduce the chances of hitting `rate limit`.
