@@ -46,7 +46,26 @@ pip install gsearch
 You can also use it as a CLI tool.
 
 ```sh
-$ gsearch "Why Python is awesome"
+$ gsearch "君の名"
+
+1. 映画『君の名は。』公式サイト
+  http://www.kiminona.com/
+2. 君の名は。 - Wikipedia
+  https://ja.wikipedia.org/wiki/%25E5%2590%259B%25E3%2581%25AE%25E5%2590%258D%25E3%2581%25AF%25E3%2580%2582
+3. 君の名は。 : 作品情報 - 映画.com
+  http://eiga.com/movie/83796/
+4. 君の名は。 - 作品 - Yahoo!映画
+  https://movies.yahoo.co.jp/movie/%25E5%2590%259B%25E3%2581%25AE%25E5%2590%258D%25E3%2581%25AF%25E3%2580%2582/355058/
+5. 『君の名は。』米メディア“矛盾”を指摘しつつも「一流」と絶賛 | dmenu映画
+  https://movie.smt.docomo.ne.jp/article/1053874/
+6. 「君の名は。」予告 - YouTube
+  https://www.youtube.com/watch%3Fv%3Dk4xGqY5IDBE
+7. 君の名はのネタバレ - 【君の名は。】あらすじやネタバレから舞台の聖地 ...
+  https://tabichannel.com/article/102/kiminona
+8. 『君の名は。』の深すぎる「15」の盲点 | シネマズ by 松竹
+  https://cinema.ne.jp/recommend/kiminonaha2016092717/
+9. Amazon.co.jp: 君の名は: DVD - アマゾン
+  https://www.amazon.co.jp/b%3Fnode%3D5276458051
 ```
 
 
