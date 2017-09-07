@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import re
+import traceback
 import sys
 from random import choice
 from data import user_agents
@@ -40,8 +41,10 @@ def download(query, num_results):
 	})
 	try:
 		response = request.urlopen(req)
-	except:  # catch connection issues
+	except Exception:  # catch connection issues
 		# may also catch 503 rate limit exceed
+		print('ERROR\n')
+		traceback.print_exc()
 		return ''
 	# response.read is bytes in Py 3
 	if isPython2:
