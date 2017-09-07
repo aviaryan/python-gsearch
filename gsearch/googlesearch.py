@@ -15,9 +15,9 @@ try:
 	from urllib.parse import quote
 	# local
 	try:
-		from gsearch.data import user_agents
+		from gsearch.data import user_agents # works in tests
 	except ImportError:
-		from data import user_agents
+		from data import user_agents # works in a normal run
 except ImportError:
 	# Python 2
 	import urllib2 as request
@@ -98,7 +98,7 @@ def search(query, num_results=10):
 	data = download(query, num_results)
 	results = re.findall(r'\<h3.*?\>.*?\<\/h3\>', data, re.IGNORECASE)
 	if results is None or len(results) == 0:
-		print('No results where found? Did the rate limit exceed?')
+		print('No results where found. Did the rate limit exceed?')
 		return []
 	# search has results
 	links = []
