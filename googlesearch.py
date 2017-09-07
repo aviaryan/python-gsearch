@@ -23,7 +23,7 @@ except ImportError:
 isPython2 = sys.version.startswith('2')
 
 
-def download(query, num_results=20):
+def download(query, num_results=10):
 	"""
 	downloads HTML after google search
 	"""
@@ -31,7 +31,9 @@ def download(query, num_results=20):
 	name = quote(query)
 
 	name  = name.replace(' ','+')
-	url = 'http://www.google.com/search?q=' + name + '&num=' + str(num_results)
+	url = 'http://www.google.com/search?q=' + name
+	if num_results != 10:
+		url += '&num=' + str(num_results)  # adding this param might hint Google towards a bot
 	req = request.Request(url, headers={
 		'User-Agent' : choice(user_agents),
 		# 'Referer': 'google.com'
@@ -43,6 +45,7 @@ def download(query, num_results=20):
 		data = response.read().decode('utf8', errors='ignore')
 	else:
 		data = str(response.read(), 'utf-8', errors='ignore')
+	# print(data)
 	return data
 
 
@@ -86,7 +89,7 @@ def search(query, num_results=15):
 	# search has results
 	links = []
 	for r in results:
-		mtch = re.match(r'.*?a\s*?href=\"(.*?)\"\s*?\>(.*?)\<\/a\>.*$', r, flags=re.IGNORECASE)
+		mtch = re.match(r'.*?a\s*?href=\"(.*?)\".*?\>(.*?)\<\/a\>.*$', r, flags=re.IGNORECASE)
 		if mtch is None:
 			continue
 		# parse url
@@ -94,7 +97,7 @@ def search(query, num_results=15):
 		# clean url https://github.com/aviaryan/pythons/blob/master/Others/GoogleSearchLinks.py
 		url = re.sub(r'^.*?=', '', url, count=1) # prefixed over urls \url=q?
 		url = re.sub(r'\&amp.*$', '', url, count=1) # suffixed google things
-		url = re.sub(r'\%.*$', '', url) # NOT SAFE
+		# url = re.sub(r'\%.*$', '', url) # NOT SAFE
 		# parse name
 		name = prune_html(mtch.group(2))
 		name = convert_unicode(name)
