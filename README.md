@@ -31,6 +31,13 @@ pip install googlesearch
 ```
 
 
+### Warning
+
+Overusing this library might led to your IP being blocked by Google Search servers.
+Searches through Chrome or another browser might still work but this library will stop working.
+I recommend keeping at least a 15 seconds gap after each usage of this library.
+
+
 ### Inspiration
 
 [google by Mario Vilas](https://breakingcode.wordpress.com/2010/06/29/google-search-python/)

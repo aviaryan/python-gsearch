@@ -32,7 +32,10 @@ def download(query, num_results=15):
 
 	name  = name.replace(' ','+')
 	url = 'http://www.google.com/search?q=' + name + '&num=' + str(num_results)
-	req = request.Request(url, headers={'User-Agent' : choice(user_agents)})
+	req = request.Request(url, headers={
+		'User-Agent' : choice(user_agents),
+		# 'Referer': 'google.com'
+	})
 	response = request.urlopen(req)
 	# response.read is bytes in Py 3
 	if isPython2:
@@ -102,5 +105,8 @@ def search(query, num_results=15):
 
 
 if __name__ == '__main__':
-	# print(search('Kimi no na wa'))
-	print(search('君の名'))
+	if len(sys.argv) > 1:
+		print(search(sys.argv[1]))
+	else:
+		# print(search('Kimi no na wa'))
+		print(search('君の名'))
