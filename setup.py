@@ -9,7 +9,7 @@ setup(
 	install_requires = [],
 
 	name = "gsearch",
-	version = "1.1.0",
+	version = "1.2.0",
 	author = "Avi Aryan",
 	author_email = "avi.aryan123@gmail.com",
 	description = "Google Search unofficial API for Python with no external dependencies",
