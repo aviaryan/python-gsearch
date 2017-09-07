@@ -8,14 +8,14 @@ def read(fname):
 setup(
 	install_requires = [],
 
-	name = "googlesearch",
-	version = "1.0.0",
+	name = "gsearch",
+	version = "1.0.1",
 	author = "Avi Aryan",
 	author_email = "avi.aryan123@gmail.com",
 	description = "Google Search unofficial API for Python with no external dependencies",
 	keywords = "search-api google python",
 	url = "https://github.com/aviaryan/googlesearch",
-	packages=['googlesearch'],
+	packages=['gsearch'],
 	exclude_package_data = {
 		'': ['config.json', '__pycache__/*']
 	},
@@ -31,7 +31,7 @@ setup(
 
 	entry_points={
 		'console_scripts': [
-			'googlesearch = googlesearch.googlesearch:run',
+			'gsearch = gsearch.googlesearch:run',
 			# 'series-renamer-config = series_renamer.series_renamer:editConfig',
 		],
 	}

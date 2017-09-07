@@ -4,7 +4,7 @@ import unittest
 import time
 from random import randint
 
-from googlesearch.googlesearch import search
+from gsearch.googlesearch import search
 
 
 class TestSearch(unittest.TestCase):

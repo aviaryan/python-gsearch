@@ -13,14 +13,14 @@ But this turned out to be pretty generic, feel free to use it for your own work.
 ### Installation
 
 ```sh
-pip install googlesearch
+pip install gsearch
 ```
 
 
 ### Using
 
 ```sh
-> from googlesearch import search
+> from gsearch.googlesearch import search
 
 > results = search('Full Stack Developer')  # returns 10 or less results
 [ ('Name', 'Link'),
@@ -33,7 +33,7 @@ pip install googlesearch
 You can also use it as a CLI tool.
 
 ```sh
-$ googlesearch "Why Python is awesome"
+$ gsearch "Why Python is awesome"
 ```
 
 
