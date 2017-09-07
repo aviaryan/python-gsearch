@@ -30,6 +30,12 @@ pip install googlesearch
 > results = search('Avi Aryan', num_results=20)  # returns 20 or less results
 ```
 
+You can also use it as a CLI tool.
+
+```sh
+$ googlesearch "Why Python is awesome"
+```
+
 
 ### Warning
 
