@@ -12,7 +12,7 @@ try:
 	from urllib import request
 	from html.parser import HTMLParser # keep it to avoid warning
 	from html import unescape
-	from urllib.parse import quote
+	from urllib.parse import quote, unquote
 	# local
 	try:
 		from gsearch.data import user_agents # works in tests
@@ -21,7 +21,7 @@ try:
 except ImportError:
 	# Python 2
 	import urllib2 as request
-	from urllib import quote
+	from urllib import quote, unquote
 	from HTMLParser import HTMLParser
 	# local
 	from data import user_agents
@@ -111,6 +111,7 @@ def search(query, num_results=10):
 		# clean url https://github.com/aviaryan/pythons/blob/master/Others/GoogleSearchLinks.py
 		url = re.sub(r'^.*?=', '', url, count=1) # prefixed over urls \url=q?
 		url = re.sub(r'\&amp.*$', '', url, count=1) # suffixed google things
+		url = unquote(url)
 		# url = re.sub(r'\%.*$', '', url) # NOT SAFE, causes issues with Youtube watch url
 		# parse name
 		name = prune_html(mtch.group(2))
