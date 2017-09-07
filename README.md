@@ -4,7 +4,9 @@
 [![Downloads](https://img.shields.io/pypi/dw/gsearch.svg)](https://pypi.python.org/pypi/gsearch)
 [![Build Status](https://travis-ci.org/aviaryan/python-gsearch.svg?branch=master)](https://travis-ci.org/aviaryan/python-gsearch)
 
-Unofficial Google Search API for Python. It uses web scraping in the background and is compatible with both **Python 2 and 3**.
+Unofficial Google Search API for Python.
+
+It uses web scraping in the background and is compatible with both **Python 2 and 3**.
 
 
 ### Why this project?
@@ -12,6 +14,13 @@ Unofficial Google Search API for Python. It uses web scraping in the background 
 No such library exists which works out of the box i.e. without requiring any external dependencies.
 I did this so that I can use it on my [Alfred workflow](https://github.com/aviaryan/alfred-google-search).
 But this turned out to be pretty generic, feel free to use it for your own work.
+
+
+### Features
+
+* Free unrestricted API, requires no key or credit card
+* Unicode support
+* Works for all Python versions (2 & 3)
 
 
 ### Installation
@@ -67,3 +76,4 @@ If you see a 'rate limit' or a 503 error, it's best to stop using the library an
 [google by Mario Vilas](https://breakingcode.wordpress.com/2010/06/29/google-search-python/) -
 A library which does almost the same thing except that it uses external dependencies.
 This library also has some additional optimizations to reduce the chances of hitting `rate limit`.
+
