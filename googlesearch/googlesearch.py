@@ -115,9 +115,16 @@ def search(query, num_results=10):
 	return links
 
 
-if __name__ == '__main__':
+def run():
+	"""
+	CLI endpoint to run the program
+	"""
 	if len(sys.argv) > 1:
 		print(search(sys.argv[1]))
 	else:
 		# print(search('Kimi no na wa'))
 		print(search('君の名'))
+
+
+if __name__ == '__main__':
+	run()
