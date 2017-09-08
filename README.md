@@ -1,7 +1,6 @@
 # Python Google Search API
 
 [![Version](https://img.shields.io/pypi/v/gsearch.svg)](https://pypi.python.org/pypi/gsearch)
-[![Downloads](https://img.shields.io/pypi/dw/gsearch.svg)](https://pypi.python.org/pypi/gsearch)
 [![Build Status](https://travis-ci.org/aviaryan/python-gsearch.svg?branch=master)](https://travis-ci.org/aviaryan/python-gsearch)
 
 Unofficial Google Search API for Python.
