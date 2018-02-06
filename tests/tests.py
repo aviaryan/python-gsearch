@@ -17,7 +17,7 @@ class TestSearch(unittest.TestCase):
 		self.assertTrue(len(res) > 10, 'Less than 11 results returned')
 
 	def test_results_zero(self):
-		res = search('dsjaksfajsdhkhawkehkajdwek')
+		res = search('dsjaksfajsdhkhawkehkajdwek' + (str(randint(10,100)) * 5))
 		self.assertTrue(len(res) == 0, 'There was a result. What has this world come to?')
 
 	def test_unicode(self):

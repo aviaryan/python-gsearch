@@ -1,6 +1,8 @@
 language: python
 python:
   - "2.7"
+  - "3.2"
   - "3.6"
+# 3.2 added because https://github.com/aviaryan/python-gsearch/issues/3
 # command to run tests
 script: python -m unittest tests.tests

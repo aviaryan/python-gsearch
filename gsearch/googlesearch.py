@@ -11,13 +11,16 @@ try:
 	# Python 3
 	from urllib import request
 	from html.parser import HTMLParser # keep it to avoid warning
-	from html import unescape
 	from urllib.parse import quote, unquote
 	# local
 	try:
 		from gsearch.data import user_agents # works in tests
 	except ImportError:
 		from data import user_agents # works in a normal run
+	try:
+		from html import unescape  # Python 3.4+
+	except ImportError:
+		pass
 except ImportError:
 	# Python 2
 	import urllib2 as request
@@ -86,7 +89,12 @@ def convert_unicode(text):
 		h = HTMLParser()
 		s = h.unescape(text)
 	else:
-		s = unescape(text)
+		try:
+			s = unescape(text)
+		except Exception:
+			# Python 3.3 and below
+			# https://stackoverflow.com/a/2360639/2295672
+			s = HTMLParser().unescape(text)
 	return s
 
 
